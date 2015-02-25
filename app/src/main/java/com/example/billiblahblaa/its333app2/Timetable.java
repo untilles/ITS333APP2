@@ -24,18 +24,113 @@ public class Timetable extends ActionBarActivity {
         helper = new CourseDBHelper(this);
 
         SQLiteDatabase db = helper.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT _id, code, day, time FROM course WHERE day = 'Monday' AND time = '9.00-10.20';", null);
+        Cursor cursor = db.rawQuery("SELECT * FROM course;", null);
+        cursor.moveToFirst();
+        int i,tcr = 0;
+        for(i=0; i<cursor.getCount(); i++) {
+            String course = cursor.getString(1);
+            int cr = cursor.getInt(2);
+            String day = cursor.getString(3);
+            String time = cursor.getString(4);
 
-        String code = cursor.getString(1);
+            /*TextView tvM1 = (TextView)findViewById(R.id.tvM1);
+            TextView tvM2 = (TextView)findViewById(R.id.tvM2);
+            TextView tvM3 = (TextView)findViewById(R.id.tvM3);
+            tvM1.setText(course);
+            tvM2.setText(day);
+            tvM3.setText(time);*/
+            tcr = tcr + cr;
 
-        TextView tvM1 = (TextView)findViewById(R.id.tvM1);
-        tvM1.setText(code);
+            if(day.compareTo("Monday") == 0) {
+                if(time.compareTo("9.00-10.20") == 0) {
+                    TextView tvM1 = (TextView)findViewById(R.id.tvM1);
+                    tvM1.setText(course);
+                } else if(time.compareTo("10.40-12.00") == 0) {
+                    TextView tvM2 = (TextView)findViewById(R.id.tvM2);
+                    tvM2.setText(course);
+                } else if(time.compareTo("13.00-14.20") == 0) {
+                    TextView tvM3 = (TextView)findViewById(R.id.tvM3);
+                    tvM3.setText(course);
+                } else if(time.compareTo("14.40-16.00") == 0) {
+                    TextView tvM4 = (TextView)findViewById(R.id.tvM4);
+                    tvM4.setText(course);
+                }
+            } else if(day.compareTo("Tuesday") == 0) {
+                if(time.compareTo("9.00-10.20") == 0) {
+                    TextView tvT1 = (TextView)findViewById(R.id.tvT1);
+                    tvT1.setText(course);
+                } else if(time.compareTo("10.40-12.00") == 0) {
+                    TextView tvT2 = (TextView)findViewById(R.id.tvT2);
+                    tvT2.setText(course);
+                } else if(time.compareTo("13.00-14.20") == 0) {
+                    TextView tvT3 = (TextView)findViewById(R.id.tvT3);
+                    tvT3.setText(course);
+                } else if(time.compareTo("14.40-16.00") == 0) {
+                    TextView tvT4 = (TextView)findViewById(R.id.tvT4);
+                    tvT4.setText(course);
+                }
+            } else if(day.compareTo("Wednesday") == 0) {
+                if(time.compareTo("9.00-10.20") == 0) {
+                    TextView tvW1 = (TextView)findViewById(R.id.tvW1);
+                    tvW1.setText(course);
+                } else if(time.compareTo("10.40-12.00") == 0) {
+                    TextView tvW2 = (TextView)findViewById(R.id.tvW2);
+                    tvW2.setText(course);
+                } else if(time.compareTo("13.00-14.20") == 0) {
+                    TextView tvW3 = (TextView)findViewById(R.id.tvW3);
+                    tvW3.setText(course);
+                } else if(time.compareTo("14.40-16.00") == 0) {
+                    TextView tvW4 = (TextView)findViewById(R.id.tvW4);
+                    tvW4.setText(course);
+                }
+            } else if(day.compareTo("Thursday") == 0) {
+                if(time.compareTo("9.00-10.20") == 0) {
+                    TextView tvTH1 = (TextView)findViewById(R.id.tvTH1);
+                    tvTH1.setText(course);
+                } else if(time.compareTo("10.40-12.00") == 0) {
+                    TextView tvTH2 = (TextView)findViewById(R.id.tvTH2);
+                    tvTH2.setText(course);
+                } else if(time.compareTo("13.00-14.20") == 0) {
+                    TextView tvTH3 = (TextView)findViewById(R.id.tvTH3);
+                    tvTH3.setText(course);
+                } else if(time.compareTo("14.40-16.00") == 0) {
+                    TextView tvTH4 = (TextView)findViewById(R.id.tvTH4);
+                    tvTH4.setText(course);
+                }
+            } else if(day.compareTo("Friday") == 0) {
+                if(time.compareTo("9.00-10.20") == 0) {
+                    TextView tvF1 = (TextView)findViewById(R.id.tvF1);
+                    tvF1.setText(course);
+                } else if(time.compareTo("10.40-12.00") == 0) {
+                    TextView tvF2 = (TextView)findViewById(R.id.tvF2);
+                    tvF2.setText(course);
+                } else if(time.compareTo("13.00-14.20") == 0) {
+                    TextView tvF3 = (TextView)findViewById(R.id.tvF3);
+                    tvF3.setText(course);
+                } else if(time.compareTo("14.40-16.00") == 0) {
+                    TextView tvF4 = (TextView)findViewById(R.id.tvF4);
+                    tvF4.setText(course);
+                }
+            } else if(day.compareTo("Saturday") == 0) {
+                if(time.compareTo("9.00-10.20") == 0) {
+                    TextView tvS1 = (TextView)findViewById(R.id.tvS1);
+                    tvS1.setText(course);
+                } else if(time.compareTo("10.40-12.00") == 0) {
+                    TextView tvS2 = (TextView)findViewById(R.id.tvS2);
+                    tvS2.setText(course);
+                } else if(time.compareTo("13.00-14.20") == 0) {
+                    TextView tvS3 = (TextView)findViewById(R.id.tvS3);
+                    tvS3.setText(course);
+                } else if(time.compareTo("14.40-16.00") == 0) {
+                    TextView tvS4 = (TextView)findViewById(R.id.tvS4);
+                    tvS4.setText(course);
+                }
+            }
+            cursor.moveToNext();
+        }
 
-        /*adapter = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_1, cursor,
-                new String[] {"code"}, new int[] {android.R.id.text1},0);
-
-        ListView lvM1 = (ListView)findViewById(R.id.lvM1);
-        lvM1.setAdapter(adapter);*/
+        TextView tvCR = (TextView)findViewById(R.id.tvCR);
+        tvCR.setText(Integer.toString(tcr));
     }
 
 

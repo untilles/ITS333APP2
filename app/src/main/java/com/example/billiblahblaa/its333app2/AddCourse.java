@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+import android.widget.Button;
 
 
 public class AddCourse extends ActionBarActivity {
@@ -18,6 +19,58 @@ public class AddCourse extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_course);
+
+        Intent i = this.getIntent();
+        if (i.hasExtra("code")) {
+            String code = i.getStringExtra("code");
+            int credit = i.getIntExtra("credit", 0);
+            String time = i.getStringExtra("time");
+            String day = i.getStringExtra("day");
+
+            RadioGroup rday = (RadioGroup)findViewById(R.id.rgDay);
+            if (day.equals("Monday")) {
+                rday.check(R.id.Monday);
+            }
+            else if (day.equals("Tuesday")) {
+                rday.check(R.id.Tuesday);
+            }
+            else if (day.equals("Wednesday")) {
+                rday.check(R.id.Wednesday);
+            }
+            else if (day.equals("Thursday")) {
+                rday.check(R.id.Thursday);
+            }
+            else if (day.equals("Friday")) {
+                rday.check(R.id.Friday);
+            }
+            else if (day.equals("Saturday")) {
+                rday.check(R.id.Saturday);
+            }
+
+            RadioGroup rtime = (RadioGroup)findViewById(R.id.rgTime);
+            if (time.equals("9.00-10.20")) {
+                rtime.check(R.id.rb1);
+            }
+            else if (time.equals("10.40-12.00")) {
+                rtime.check(R.id.rb2);
+            }
+            else if (time.equals("13.00-14.20")) {
+                rtime.check(R.id.rb3);
+            }
+            else if (time.equals("14.40-16.00")) {
+                rday.check(R.id.rb4);
+            }
+
+            EditText etCode = (EditText) findViewById(R.id.etCode);
+            etCode.setText(code);
+
+            EditText etCR = (EditText) findViewById(R.id.etCredit);
+            etCR.setText(Integer.toString(credit));
+
+            Button btAddCourse = (Button) findViewById(R.id.btAddCourse);
+            btAddCourse.setText("Edit Course");
+        }
+
     }
 
     public void addClicked(View v) {

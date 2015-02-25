@@ -4,7 +4,8 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.example.billiblahblaa.its333app2.Timetable">
+    tools:context="com.example.billiblahblaa.its333app2.Timetable"
+    android:background="@drawable/page">
 
     <TableLayout
         android:layout_width="fill_parent"
@@ -187,7 +188,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Small Text"
+                android:text="lunch"
                 android:id="@+id/textView10"
                 android:layout_column="6" />
 
@@ -288,7 +289,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Small Text"
+                android:text="lunch"
                 android:id="@+id/textView16"
                 android:layout_column="6" />
 
@@ -389,7 +390,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Small Text"
+                android:text="lunch"
                 android:id="@+id/textView22"
                 android:layout_column="6" />
 
@@ -490,7 +491,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Small Text"
+                android:text="lunch"
                 android:id="@+id/textView28"
                 android:layout_column="6" />
 
@@ -591,7 +592,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Small Text"
+                android:text="lunch"
                 android:id="@+id/textView34"
                 android:layout_column="6" />
 
@@ -692,7 +693,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Small Text"
+                android:text="lunch"
                 android:id="@+id/textView40"
                 android:layout_column="6" />
 
@@ -739,6 +740,27 @@
                 android:layout_column="0"
                 android:background="@drawable/abc_list_pressed_holo_dark"
                 android:adjustViewBounds="true" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/tr16">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:id="@+id/tvCC"
+                android:layout_column="8"
+                android:text="Total credits" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:id="@+id/tvCR"
+                android:layout_column="10" />
         </TableRow>
 
     </TableLayout>
