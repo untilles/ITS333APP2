@@ -91,7 +91,6 @@ public class CourseManage extends ActionBarActivity implements AdapterView.OnIte
                 long new_id = db.insert("course", null, r);
             }
         }
-
         if (requestCode == 77) {
             if (resultCode == RESULT_OK) {
                 String code = data.getStringExtra("code");
